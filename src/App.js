@@ -1,23 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react'
 
 function App() {
+  
+  const [food, setFood] = useState("pizza")
+  const [userFood, setUserFood] = useState("")
+  const handleFood = (e) =>
+  {
+    e.preventDefault()
+    setUserFood(e.target.value)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h1>hello react</h1>
+     <h2>I love to eat {food}</h2>
+     
+     <input onChange={handleFood}></input>
+     <button onClick = { ()=>
+     {console.log("button clicked")
+      setFood(userFood)
+     }}>click me</button>
+    
     </div>
   );
 }
